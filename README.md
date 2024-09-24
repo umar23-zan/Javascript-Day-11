@@ -16,6 +16,7 @@
     </script>
   </body>
 </html>
+
 ```
 18b. Using fetch(), make the same request GET/greeting and display the response in the console. Note: this URL path responds with some text, so instead of using response.json(), use response.text()
 ```
