@@ -109,25 +109,3 @@ async function postGreeting() {
 }
 postGreeting();
 ```
-18h. In data/cart.js, create an async function loadCartFetch() and create an async await version of loadCart(). console.log() the text attached to the response. In scripts/checkout.js, inside loadPage(), replace loadCart() with loadCartFetch().
-```
-export async function loadCartFetch() {
-  const response = await fetch('https://supersimplebackend.dev/cart');
-  const text = await response.text();
-  console.log(text);
-  return text;
-}
-```
-18i. In checkout.js, use Promise.all to run loadProductsFetch() and loadCartFetch() at the same time. Note: give the promises directly to Promise.all (don't await them, otherwise they will run one at a time). Then, use await Promise.all(...) to wait for Promise.all to finish.
-```
-await Promise.all([
-  loadProductsFetch(),
-  loadCartFetch()
-]);
-```
-18j. In orderSummaryTest.js, in the beforeAll hook, instead of using a done function, make the inner function async and use await to wait for loadProductsFetch() to finish.
-```
- beforeAll(async () => {
-    await loadProductsFetch();
-  });
-```
